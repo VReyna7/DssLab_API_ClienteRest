@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Main</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/estilo.css">    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<br>
+<br>
+    <div class="container">
+        <h1 class="text-center">EPICARDO</h1>        
+        <br>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Ingrese el codigo de la editorial:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="codigo_editorial" placeholder="Ingresa la ocupación" id='codigo_editorial' required>
+                </div>
+            </div>     
+            <div class="form-group">
+                <label for="nombre">Ingrese el nombre de la editorial:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="nombre_editorial" placeholder="Ingresa la ocupación" id='nombre_editorial' required>
+                </div>
+            </div>    
+            <div class="form-group">
+                <label for="nombre">Ingrese el telfono de la editorial:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="telefono" placeholder="Ingresa la ocupación" id='telefono' required>
+                </div>
+            </div>           
+            <div class="form-group">
+                <label for="nombre">Ingrese el contacto de la editorial:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="contacto" placeholder="Ingresa la ocupación" id='contacto' required>
+                </div>
+            </div>            
+            <button type="button" class="btn btn-primary" id="guardar">Guardar</button>
+          </form>
+        <div>
+        <br>
+            <div class="">
+                <table class="table table-striped table-hover table-dark" id="Table">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Contacto</th>
+                            <th>Telefono</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div class="modal fade" id="ModalEditoriales" tabindex="-1" arialabelledby="ModalEditoriales" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editoriales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" arialabel="Close">X</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="col-md-12" id="conten">
+                        <div class="form-group">
+                            <label for="nombre">Ingrese el codigo de la editorial:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="codigo_editorial" placeholder="Ingresa la ocupación" id="codigoInput" required>
+                            </div>
+                        </div>     
+                        <div class="form-group">
+                            <label for="nombre">Ingrese el nombre de la editorial:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="nombre_editorial" placeholder="Ingresa la ocupación" id="nombreInput" required>
+                            </div>
+                        </div>    
+                        <div class="form-group">
+                            <label for="nombre">Ingrese el telfono de la editorial:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="telefono" placeholder="Ingresa la ocupación" id="telefonoInput" required>
+                            </div>
+                        </div>           
+                        <div class="form-group">
+                            <label for="nombre">Ingrese el contacto de la editorial:</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="contacto" placeholder="Ingresa la ocupación" id="contactoInput" required>
+                            </div>
+                        </div>                                              
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" name="submit" class="btn btn-success btn-md" form="formactualiza" value="Enviar" id="Editar">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="EliminarEditorial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+        </div>
+        <div class="modal-body">
+            <label for="">Desea eliminar la editorial con el siguiente codigo:</label><br>
+            <input type="text" id="eliminarId" disabled="true">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">cancelar</button>
+          <button type="button" class="btn btn-danger" id="Eliminar">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="js/crudEditoriales.js"></script>
+</html>
